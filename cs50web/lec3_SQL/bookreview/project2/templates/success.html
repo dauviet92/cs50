@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Success!
+
+{% endblock %}
+
+{% block body %}
+    <h1>Success!</h1>
+    Login successfully.
+
+    <h1>Book Search!</h1>
+    <form action="{{ url_for('search') }}" method="post">
+      <p>
+      <div>
+        <input type="text" name="isbn" placeholder="ISBN">
+      </div>
+      <div>
+        <input type="text" name="title" placeholder="Title">
+      </div>
+      <div>
+        <input type="text" name="author" placeholder="Author">
+      </div>
+
+    </p>
+
+    <p>
+      <form method="post">
+        <div class="panel-body">
+            <input type ="submit" name="action" value="Search">
+        </div>
+      </form>
+    </p>
+
+      <div class="form-group">
+          <select class="form-control" name="name">
+              {% for book in books %}
+                  <option value="{{ book.id }}">@{{ book.isbn }} // {{ book.title}} // {{book.author}}</option>
+              {% endfor %}
+          </select>
+      </div>
+      <p> {{message}} </p>
+    </form>
+
+    <p>
+    <form action="{{url_for('viewbook')}}" method="post">
+      <div class="panel-body">
+          <input type ="submit" name="action" value="View">
+      </div>
+    </form>
+  </p>
+
+    <form id="package_form" action="{{url_for('logout')}}" method="post">
+      <div class="panel-body">
+          <input type ="submit" name="action" value="Logout">
+      </div>
+    </form>
+
+
+{% endblock %}

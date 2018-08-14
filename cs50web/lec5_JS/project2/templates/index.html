@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        span{
+              padding-left: 15px;
+            }
+        </style>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+        <script src="{{ url_for('static', filename='index.js') }}"></script>
+        <title>Kakashi Chat room!!</title>
+    </head>
+    <body>
+        <h1 style="color:blue;"> Welcome to my chat room !!!</h1>
+
+        <form id="frm_pseudo">
+        <p> Pseudo : <input id="tbo_pseudo" autocomplete="off" autofocus placeholder="type your alias here" style="width:16%;height:20px">
+        <input id="sub_pseudo" type="submit">
+        </p>
+        </form>
+
+        <form id="frm_channels">
+          <p> Channel available : <select id="lbo_channel" style ="width:20%;" >
+              <option value"green"> green </option>
+              <option value"blue"> blue </option>
+              <option value"red"> red </option>
+          </select>
+          <input id="sub_channel", type="submit" value ="Go to"></p>
+        </form>
+
+
+        <form id="frm_new_channel">
+          <p> New Channel Name : <input id="tbo_new_channel" autocomplete="off" autofocus placeholder="type channel name here" style="width:16%;height:20px">
+          <input id="sub_new_channel" type="submit" value = "Create"><span style="color:red;" id="msg_chanel_exist">channel exist</span>
+          </p>
+        </form>
+
+        <p style="color: green;" id="message"></p>
+    </body>
+</html>
